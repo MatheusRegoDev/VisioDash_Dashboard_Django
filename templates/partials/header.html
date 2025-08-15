@@ -1,0 +1,36 @@
+{% load static %}
+
+<header class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <nav class="container">
+        <a class="navbar-brand me-auto" href="#">
+            <img src="{% static "home/img/logo.png" %}" alt="VisioDash Logo" width="65px" height="65px" class="p-0">
+        </a>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <img src="{% static "home/img/logo-responsive.png" %}" alt="VisioDash Logo" width="70px" height="70px">
+                <h5 class="offcanvas-title ms-2" id="offcanvasNavbarLabel">VISIODASH</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" aria-current="page" href="#home">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="#about">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="#service">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="#contact">Contatos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <a href="" class="login-button inter">Começar agora!</a>
+        <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+</header>

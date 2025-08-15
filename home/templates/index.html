@@ -1,0 +1,24 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% load compress %}
+
+
+{% block head %}
+    {% compress css %}
+        <link rel="stylesheet" href="{% static "home/css/home.css" %}">
+    {% endcompress %}
+{% endblock head %}
+{% block title %}VisioDash | Home{% endblock title %}
+
+{% block body %}
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100" data-bs-smooth-scroll="true" tabindex="0">
+    {% block content %}
+        {% include "partials/header.html" %}
+        {% include "partials/hero.html" %}
+        {% include "partials/about.html" %}
+        {% include "partials/service.html" %}
+        {% include "partials/contact.html" %}
+        {% include "partials/footer.html" %}
+    {% endblock content %}
+</body>
+{% endblock body %}

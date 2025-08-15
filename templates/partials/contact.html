@@ -1,0 +1,67 @@
+{% load static %}
+
+<section id="contact" class="py-5 text-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Título -->
+            <div class="col-12 text-center mb-5">
+                <h2 class="fw-bold">Entre em Contato</h2>
+                <p class="text-white">Estamos prontos para ajudar você a gerenciar seus dados e finanças.</p>
+            </div>
+
+            <!-- Informações de contato -->
+            <div class="col-md-4 mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="icon color-main text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width:50px; height:50px;">
+                        <i class="bi bi-telephone fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="fw-bolder mb-1">Telefone</h6>
+                        <p class="mb-0 text-muted">+55 (11) 99999-9999</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start mt-3">
+                    <div class="icon color-main text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width:50px; height:50px;">
+                        <i class="bi bi-envelope fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="fw-bold mb-1">E-mail</h6>
+                        <p class="mb-0 text-muted">contato@visiodash.com</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start mt-3">
+                    <div class="icon color-main text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width:50px; height:50px;">
+                        <i class="bi bi-geo-alt fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="fw-bold mb-1">Endereço</h6>
+                        <p class="mb-0 text-muted">Av. Paulista, 1234 - São Paulo/SP</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário -->
+            <div class="col-md-8">
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" placeholder="seu@email.com">
+                        </div>
+                        <div class="col-12">
+                            <label for="mensagem" class="form-label">Mensagem</label>
+                            <textarea class="form-control" id="mensagem" rows="5" placeholder="Escreva sua mensagem..."></textarea>
+                        </div>
+                        <div class="col-12 text-end">
+                            <button type="submit" class="btn login-button px-4">Enviar Mensagem</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
