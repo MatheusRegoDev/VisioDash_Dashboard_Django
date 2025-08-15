@@ -7,6 +7,7 @@ e este projeto adota o [Versionamento Semântico](https://semver.org/lang/pt-BR/
 ## [0.0.2] - 2025-08-15
 ### Adicionado
 - Feat: pagehome completa
+- Feat: implementação da app autenticação
 
 ## [0.0.1] - 2025-08-14
 ### Adicionado

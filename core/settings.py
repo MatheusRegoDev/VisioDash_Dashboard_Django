@@ -35,7 +35,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "home.apps.HomeConfig",
-    # "autenticacao.apps.AutenticacaoConfig",
+    "autenticacao.apps.AutenticacaoConfig",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -141,3 +141,5 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'alert-success',
     constants.INFO: 'alert-info ',
 }
+
+LOGIN_URL = '/accounts/login'
