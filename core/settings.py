@@ -143,3 +143,5 @@ MESSAGE_TAGS = {
 }
 
 LOGIN_URL = '/accounts/login'
+
+AUTH_USER_MODEL = "autenticacao.Users"

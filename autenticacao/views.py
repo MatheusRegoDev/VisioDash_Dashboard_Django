@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
+from .models import Users
 from django.contrib import messages, auth
 from django.contrib.messages import constants
 import re
 
 # Create your views here.
 def cadastro(request):
+    if request.user.is_authenticated:
+        return redirect('/dashboard/')
+    
     if request.method == 'GET':
         return render(request, 'cadastro.html')
     else:
@@ -15,7 +18,7 @@ def cadastro(request):
         confirma_senha = request.POST.get('confirmar-senha')
         termos = request.POST.get('termos') == 'on'
 
-        if User.objects.filter(username=username).exists():
+        if Users.objects.filter(username=username).exists():
             messages.add_message(request, constants.ERROR, "Usuário já existe com esse nome!")
             redirect ('/accounts/cadastro')
         
@@ -47,12 +50,12 @@ def cadastro(request):
             messages.add_message(request, constants.ERROR, "A senha deve conter pelo menos um caractere especial (!@#$%&*)!")
             return redirect('/accounts/cadastro')
 
-        if User.objects.filter(email=email).exists():
+        if Users.objects.filter(email=email).exists():
             messages.add_message(request, constants.ERROR, "Já existe um usuário cadastrado nesse e-mail!")
-            redirect ('auth/cadastro')
+            redirect ('/accounts/cadastro')
 
         try:
-            user = User.objects.create_user(username = username, email = email, password=senha)
+            user = Users.objects.create_user(username = username, email = email, password=senha)
 
             messages.add_message(request, constants.SUCCESS, "Cadastro realizado com sucesso!")
             return redirect('/accounts/login')
@@ -62,6 +65,9 @@ def cadastro(request):
             return redirect('/accounts/cadastro')
         
 def login(request):
+    if request.user.is_authenticated:
+        return redirect('/dashboard/')
+
     if request.method == 'GET':
         return render(request, 'login.html')
     
@@ -69,9 +75,8 @@ def login(request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
 
-        user = User.objects.get(email=email)
+        user = Users.objects.get(email=email)
         authenticated_user = auth.authenticate(request, username=user.username, password=senha)
-
         if authenticated_user:
             auth.login(request, authenticated_user)
             return redirect('/dashboard/')
@@ -82,6 +87,9 @@ def login(request):
             return redirect('/accounts/login')
         
 def alterar_senha(request):
+    if request.user.is_authenticated:
+        return redirect('/dashboard/')
+    
     if request.method == 'GET':
         return render(request, 'alterar-senha.html')
     
@@ -91,7 +99,7 @@ def alterar_senha(request):
         confirma_senha = request.POST.get('confirmar-senha')
         termos = request.POST.get('termos') == 'on'
         
-        if not User.objects.filter(email=email).exists():
+        if not Users.objects.filter(email=email).exists():
             messages.add_message(request, constants.ERROR, "Não existe esse e-mail cadastrado")
             redirect ('auth/alterar_senha')
 
@@ -124,7 +132,7 @@ def alterar_senha(request):
             return redirect('/accounts/alterar_senha')
             
         try:
-            user = User.objects.get(email=email)
+            user = Users.objects.get(email=email)
             user.set_password(nova_senha)
             user.save()
 
